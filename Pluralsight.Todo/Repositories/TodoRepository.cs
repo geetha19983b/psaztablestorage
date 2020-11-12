@@ -11,14 +11,13 @@ namespace Pluralsight.Todo.Repositories
         private CloudTable todoTable = null;
         public TodoRepository()
         {
-            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fekbergpluralsight-cosmos;AccountKey=O9mv1To3pgy23se1LKht8rFRGivCVAiAG5ThiCHPqCR0ZypnT2qVOGavEKPI6212iAoC8DbIF746SU5sFKxOLA==;TableEndpoint=https://fekbergpluralsight-cosmos.table.cosmos.azure.com:443/;");
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fekbergpluralsight-cosmos;AccountKey=O9mv1To3pgy23se1LKht8rFRGivCVAiAG5ThiCHPqCR0ZypnT2qVOGavEKPI6212iAoC8DbIF746SU5sFKxOLA==;TableEndpoint=https://fekbergpluralsight-cosmos.table.cosmos.azure.com:443/;");
 
 
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=canyonsa;AccountKey=tLbcOWtMmIZ07iUPa5JSZ8wWjhzJAdloDLvH0NkOMnCmLoHNRMdsRhIF9ngpWwPtD+MXu+sDtCFHy6oz1SnQiw==;EndpointSuffix=core.windows.net");
-
+            
             var tableClient = storageAccount.CreateCloudTableClient();
 
-            todoTable = tableClient.GetTableReference("canyontodo");
+            todoTable = tableClient.GetTableReference("todo");
         }
 
         public IEnumerable<TodoEntity> All()
